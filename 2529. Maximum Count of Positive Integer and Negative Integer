@@ -1,0 +1,14 @@
+class Solution:
+    def maximumCount(self, nums: List[int]) -> int:
+        nums.sort()
+        cnt=0
+        d=0
+        for i in range(len(nums)):
+            if nums[i]<0:
+                cnt+=1
+            elif nums[i]>0:
+                d+=1
+        if d>cnt:
+            return d
+        else:
+            return cnt
