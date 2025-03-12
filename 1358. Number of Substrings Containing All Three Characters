@@ -1,0 +1,15 @@
+class Solution:
+    def numberOfSubstrings(self, s: str) -> int:
+        n=len(s)
+        l=0
+        c=0
+        d=collections.defaultdict(int)
+        for right in range(n):
+            d[s[right]]+=1
+            while len(d.keys())==3:
+                c+=n-right
+                d[s[l]]-=1
+                if d[s[l]]==0:
+                    d.pop(s[l])
+                l+=1
+        return c
